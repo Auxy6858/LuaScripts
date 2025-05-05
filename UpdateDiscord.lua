@@ -9,8 +9,8 @@ local curl_command = string.format(
 os.execute("mkdir discord")
 os.execute(curl_command)
 os.execute("tar -xzf ./" .. outputFile .. " -C ./discord")
-os.execute("sudo mv ./discord /opt/discord/")
+os.execute("sudo rsync -a ./discord/Discord/ /opt/discord/")
 
 -- Cleanup 
 os.execute("rm " .. outputFile)
-
+os.execute("rm -r ./discord")
